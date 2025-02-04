@@ -3,88 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <title>Caua Dev</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
 </head>
 <body class="bg-black text-white">
-    
-    <!-- Header -->
-    <header class="container d-flex justify-content-between align-items-center py-3">
-        <img src="../assets/Logo.png" alt="Logo" class="logo">
-        <nav>
-            <a href="#about" class="btn btn-outline-light">About Me</a>
-            <a href="#contact" class="btn btn-outline-light">Contact</a>
+    <div class="background-pattern">
+        <img src="../assets/Background Pattern.png" alt="Background" class="background-image">
+    </div>
+    <header class="container d-flex justify-content-between align-items-center py-3 position-relative">
+
+        <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+            <img src="../assets/Logo.png" alt="Logo" class="logo">
+        </a>
+
+        <button id="menu-toggle" class="border-0 bg-transparent text-light d-md-none">
+            <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <nav class="d-none d-md-flex gap-3">
+            <a href="#about" class="btn btn-outline-light rounded-pill px-4 py-2 border-light text-light">Sobre Mim</a>
+            <a href="https://wa.me/5511957566602" class="btn btn-light rounded-pill px-4 py-2 text-dark">Contate</a>
         </nav>
+
+        <div id="mobile-menu" class="menu">
+            <a href="#about" class="btn btn-outline-light rounded-pill px-4 py-2 border-light text-light">Sobre Mim</a>
+            <a href="https://wa.me/5511957566602" class="btn btn-light rounded-pill px-4 py-2 text-dark">Contate</a>
+        </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="text-center py-5">
-        <img src="../assets/Me.png" alt="My Avatar" class="rounded-circle mb-3" width="150">
-        <h1 class="fw-bold text-uppercase">Caua Dev</h1>
-        <p class="fs-4 gradient-text">I do Code & <span class="text-gradient">Chill</span> 🍿</p>
-        <p class="text-muted">Passionate Software Engineer with a focus on React Native development.</p>
-        <a href="#contact" class="btn btn-primary">Contact Me</a>
+    <section class="mx-auto" style="max-width: 45em;">
+
+        <section class="text-center py-5">
+        <img src="../assets/Me.png" alt="My Avatar" class="avatar rounded-circle mb-3" width="150">
+        <h1 class="h1 fw-bold text-uppercase">Caua Dev</h1>
+        <p class="h2 fs-4 gradient-text">Apenas um <span class="text-gradient">Sonhador</span></p>
+        <p class="h6 my-3">Desenvolvedor Full Stack com proficiência em HTML, CSS, Bootstrap, Js, Python, Java e Apex, Flow(Salesforce). Atualmente cursando o 5º semestre de Engenharia de Software na FIAP.</p>
+        <a href="https://wa.me/5511957566602" class="btn btn-dark rounded-pill p-2">Contate</a>
     </section>
 
-    <!-- About Me -->
     <section id="about" class="container text-center py-5">
-        <h2 class="fw-bold text-uppercase">About Me</h2>
-        <p class="text-warning">Explore Now</p>
-        <p class="fs-5">As a passionate software engineer, I thrive on the intricate dance between logic and creativity. Currently immersed in the dynamic world of WebHR, my expertise centers around React Native, where I seamlessly blend technology with innovation.</p>
-        <p class="fs-5">With a fervor for crafting elegant solutions, I navigate the ever-evolving landscape of software development. My journey involves translating concepts into code, creating seamless user experiences, and constantly pushing the boundaries of what's possible.</p>
+        <h2 class="h2 fw-bold text-uppercase">Sobre Mim</h2>
+        <p class="h6 text-gradient">Explore agora</p>
+        <p class="">Olá, meu nome é Cauã, tenho 20 anos e desde criança sou fascinado por tecnologia e inovação. Sempre gostei de entender como as coisas funcionam e buscar soluções criativas para desafios do dia a dia. Atualmente, estou cursando o 5º semestre de Engenharia de Software na FIAP, onde tenho aprofundado meus conhecimentos em desenvolvimento de software, bancos de dados, computação em nuvem e cibersegurança.</p>
+        <p class="">Estou constantemente em busca de novos aprendizados e oportunidades para aplicar meus conhecimentos na prática, seja através de projetos acadêmicos, experiências profissionais ou desenvolvimento de soluções inovadoras. Meu objetivo é contribuir para o avanço da tecnologia e ajudar outras pessoas a ingressarem na área, compartilhando conhecimento e boas práticas.</p>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="container py-5 text-center">
-        <h2 class="fw-bold text-uppercase">Experience</h2>
-        <p class="text-warning">Explore Now</p>
+    <section id="experience" class="container py-5">
+        <h2 class="fw-bold text-uppercase text-center">Experiência</h2>
+        <p class="text-gradient text-center">Explore agora</p>
         
-        <div class="my-3 p-4">
-            <h4 class="fw-bold">WebHR / Software Engineer</h4>
-            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
-            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
-            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
-            <div class="d-flex gap-2 justify-content-center">
-                <span class="badge bg-light text-dark">React Native</span>
-                <span class="badge bg-light text-dark">Redux</span>
-                <span class="badge bg-light text-dark">JavaScript</span>
-                <span class="badge bg-light text-dark">TypeScript</span>
+        <div class="p-4">
+            <div class="d-flex justify-content-between">
+                <h4><span class="animated-span fw-bold">TWRT</span> | Estagiário Salesforce</h4>
+                <p>MAR - 2024 NOV 2024</p>
+            </div>
+            <p>Fui introduzido ao ecossistema Salesforce, onde tive a oportunidade de participar de projetos voltados para as áreas de Sales, Service e Knowledge...</p>
+            <div class="d-flex gap-2 mt-3">
+                <a href="https://www.salesforce.com/" target="_blank" class="badge border border-light text-light text-decoration-none">Salesforce</a>
+                <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/" target="_blank" class="badge border border-light text-light text-decoration-none">Apex</a>
+                <a href="https://developer.salesforce.com/docs/atlas.en-us.228.0.flow.meta/flow/" target="_blank" class="badge border border-light text-light text-decoration-none">Flow</a>
+                <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/" target="_blank" class="badge border border-light text-light text-decoration-none">Lightning Pages</a>
             </div>
         </div>
-        
-        <div class="my-3 p-4">
-            <h4 class="fw-bold">WebHR / Software Engineer</h4>
-            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
-            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
-            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
-            <div class="d-flex gap-2 justify-content-center">
-                <span class="badge bg-light text-dark">React Native</span>
-                <span class="badge bg-light text-dark">Redux</span>
-                <span class="badge bg-light text-dark">JavaScript</span>
-                <span class="badge bg-light text-dark">TypeScript</span>
+    
+        <div class="p-4">
+            <div class="d-flex justify-content-between">
+                <h4><span class="animated-span fw-bold">RF Digital</span> | Desenvolvimento Web</h4>
+                <p>JUL - 2023 NOV 2023</p>
             </div>
-        </div>
-        
-        <div class="my-3 p-4">
-            <h4 class="fw-bold">WebHR / Software Engineer</h4>
-            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
-            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
-            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
-            <div class="d-flex gap-2 justify-content-center">
-                <span class="badge bg-light text-dark">React Native</span>
-                <span class="badge bg-light text-dark">Redux</span>
-                <span class="badge bg-light text-dark">JavaScript</span>
-                <span class="badge bg-light text-dark">TypeScript</span>
+            <p>Atuei como desenvolvedor web, criando sites do zero e elaborando layouts intuitivos e responsivos...</p>
+            <div class="d-flex gap-2 mt-3">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="badge border border-light text-light text-decoration-none">HTML</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="badge border border-light text-light text-decoration-none">CSS</a>
+                <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" class="badge border border-light text-light text-decoration-none">Bootstrap</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="badge border border-light text-light text-decoration-none">JS</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="projects" class="container py-5 text-center">
+        <h2 class="fw-bold text-uppercase">Projetos</h2>
+        <p class="text-gradient">Explore agora</p>
+        <div class="row">
+            <div class="col-md-6 mb-5">
+                <a href="https://aiglobalsolution.netlify.app">
+                    <div class="card bg-dark text-light p-3 h-100 d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <img src="../assets/projeto1.png" alt="Global Solution 2023" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h4 class="my-1">Global Solution 2023</h4>
+                        <p class="flex-grow-1">Nosso projeto melhora a produção e qualidade dos alimentos, impactando a sociedade e agricultores.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-5">
+                <a href="https://loginpagecauadev.netlify.app">
+                    <div class="card bg-dark text-light p-3 h-100 d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <img src="../assets/projeto2.png" alt="Login Page" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h4>Login Page</h4>
+                        <p class="flex-grow-1">Desenvolvi uma página de login com um design clean, moderno e responsivo, focado em proporcionar uma experiência intuitiva e eficiente para os usuários.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-5">
+                <a href="https://clarke-project-fiap.netlify.app/">
+                    <div class="card bg-dark text-light p-3 h-100 d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <img src="../assets/projeto3.png" alt="Clarke" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h4>Clarke</h4>
+                        <p class="flex-grow-1">Nossa ideia é criar uma inteligência artificial que possa auxiliar ou realizar um racionamento de energia. Neste site, apresentaremos a nova inteligência artificial chamada Clarke.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-5">
+                <div class="card bg-secondary text-light p-3 h-100 d-flex flex-column opacity-75">
+                    <div class="sk-container" style="height: 200px; background: rgba(0, 0, 0, 0.5);">
+                        <div class="sk-chase">
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                        </div>
+                    </div>
+                    <h4>Projeto em Construção...</h4>
+                    <p class="flex-grow-1">Este projeto ainda está em desenvolvimento. Em breve, mais detalhes serão disponibilizados.</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    </section>
+
     <footer class="container text-center py-4">
-        <p>Loosely designed in Figma and coded in Visual Studio Code.</p>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+        <div class="d-flex justify-content-center gap-3 mb-3">
+            <a href="https://github.com/dejesuscaua" target="_blank" class="text-light">
+                <i class="bi bi-github fa-lg"></i>
+            </a>
+            <a href="https://instagram.com/itscaua.j" target="_blank" class="text-light">
+                <i class="bi bi-instagram fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/cau%C3%A3-jesus/" target="_blank" class="text-light">
+                <i class="bi bi-linkedin fa-lg"></i>
+            </a>
+        </div>
+
     </footer>
+    
+    <script src="https://kit.fontawesome.com/YOUR_KIT_ID.js" crossorigin="anonymous"></script>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script src="../js/script.js"></script>
 </html>
