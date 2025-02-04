@@ -3,94 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Caua Dev</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <header class="d-flex bd-highlight p-4" >
-        <div class="p-2 flex-grow-1 bd-highlight">
-            <img  src="../assets/Logo.png" alt="Logo">
-        </div>
-        <div class="p-2 bd-highlight"><a href=""></a><p>About Me</p></a></div>
-        <div class="p-2 bd-highlight"><a href=""></a><p>Contact</p></a></div>
-        </div>
+<body class="bg-black text-white">
+    
+    <!-- Header -->
+    <header class="container d-flex justify-content-between align-items-center py-3">
+        <img src="../assets/Logo.png" alt="Logo" class="logo">
+        <nav>
+            <a href="#about" class="btn btn-outline-light">About Me</a>
+            <a href="#contact" class="btn btn-outline-light">Contact</a>
+        </nav>
     </header>
-    <section>
-        <div><img src="../assets/Me.png" alt="My Person"</div>
-        <div>
-            <h1>Caua Dev</h1>
-            <p>I do Code & Chill 🍿</p>
+    
+    <!-- Hero Section -->
+    <section class="text-center py-5">
+        <img src="../assets/Me.png" alt="My Avatar" class="rounded-circle mb-3" width="150">
+        <h1 class="fw-bold text-uppercase">Caua Dev</h1>
+        <p class="fs-4 gradient-text">I do Code & <span class="text-gradient">Chill</span> 🍿</p>
+        <p class="text-muted">Passionate Software Engineer with a focus on React Native development.</p>
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="container text-center py-5">
+        <h2 class="fw-bold text-uppercase">About Me</h2>
+        <p class="text-warning">Explore Now</p>
+        <p class="fs-5">As a passionate software engineer, I thrive on the intricate dance between logic and creativity. Currently immersed in the dynamic world of WebHR, my expertise centers around React Native, where I seamlessly blend technology with innovation.</p>
+        <p class="fs-5">With a fervor for crafting elegant solutions, I navigate the ever-evolving landscape of software development. My journey involves translating concepts into code, creating seamless user experiences, and constantly pushing the boundaries of what's possible.</p>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="container py-5 text-center">
+        <h2 class="fw-bold text-uppercase">Experience</h2>
+        <p class="text-warning">Explore Now</p>
+        
+        <div class="my-3 p-4">
+            <h4 class="fw-bold">WebHR / Software Engineer</h4>
+            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
+            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
+            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
+            <div class="d-flex gap-2 justify-content-center">
+                <span class="badge bg-light text-dark">React Native</span>
+                <span class="badge bg-light text-dark">Redux</span>
+                <span class="badge bg-light text-dark">JavaScript</span>
+                <span class="badge bg-light text-dark">TypeScript</span>
+            </div>
         </div>
-        <div>
-            <p>Passionate Software Engineer with a focus on React Native development,
-                dedicated to crafting elegant and user-friendly mobile applications.</p>
+        
+        <div class="my-3 p-4">
+            <h4 class="fw-bold">WebHR / Software Engineer</h4>
+            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
+            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
+            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
+            <div class="d-flex gap-2 justify-content-center">
+                <span class="badge bg-light text-dark">React Native</span>
+                <span class="badge bg-light text-dark">Redux</span>
+                <span class="badge bg-light text-dark">JavaScript</span>
+                <span class="badge bg-light text-dark">TypeScript</span>
+            </div>
         </div>
-        <div>
-            <a href=""><p>Contact Me</p></a>
+        
+        <div class="my-3 p-4">
+            <h4 class="fw-bold">WebHR / Software Engineer</h4>
+            <p class="text-muted">MAY 2022 - PRESENT, HYDERABAD</p>
+            <p class="fs-5">Currently, I am working on WebHR Mobile Application. WebHR is a Cloud-based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently running in 196 countries worldwide with thousands of companies using it.</p>
+            <p class="fs-5">My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in Redux and TypeScript has ensured that the code remains manageable, and I am well-versed in the latest tools and technologies.</p>
+            <div class="d-flex gap-2 justify-content-center">
+                <span class="badge bg-light text-dark">React Native</span>
+                <span class="badge bg-light text-dark">Redux</span>
+                <span class="badge bg-light text-dark">JavaScript</span>
+                <span class="badge bg-light text-dark">TypeScript</span>
+            </div>
         </div>
     </section>
-    <section>
-        <div>
-            <h2>About Me</h2>
-            <p>Explore Now</p>
-        </div>
-        <div>
-            <p>As a passionate software engineer, I thrive on the intricate dance between logic and creativity. Currently immersed in the dynamic world of WebHR, my expertise centers around React Native, where I seamlessly blend technology with innovation.</p>
-            <p>With a fervor for crafting elegant solutions, I navigate the ever-evolving landscape of software development. My journey involves translating concepts into code, creating seamless user experiences, and constantly pushing the boundaries of what's possible</p>
-        </div>
-    </section>
-    <section>
-        <div>
-            <h2>Experience</h2>
-            <p>Explore Now</p>
-        </div>
-            <div>
-                <div>WebHR / Software Engineer</div>
-                <div>MAY 2022 - PRESENT, HYDERABAD</div>
-            </div>
-            <div>
-                <p>As a passionate software engineer, I thrive on the intricate dance between logic and creativity. Currently immersed in the dynamic world of WebHR, my expertise centers around React Native, where I seamlessly blend technology with innovation.</p>
-                <p>With a fervor for crafting elegant solutions, I navigate the ever-evolving landscape of software development. My journey involves translating concepts into code, creating seamless user experiences, and constantly pushing the boundaries of what's possible</p>
-            </div>
-            <div>
-                <a href="">haaa</a> <a href="">aaaa</a> <a href="">aaaa</a> <a href="">aaaa</a>
-            </div>
-            <div>
-                <div>WebHR / Software Engineer</div>
-                <div>MAY 2022 - PRESENT, HYDERABAD</div>
-            </div>
-            <div>
-                <p>As a passionate software engineer, I thrive on the intricate dance between logic and creativity. Currently immersed in the dynamic world of WebHR, my expertise centers around React Native, where I seamlessly blend technology with innovation.</p>
-                <p>With a fervor for crafting elegant solutions, I navigate the ever-evolving landscape of software development. My journey involves translating concepts into code, creating seamless user experiences, and constantly pushing the boundaries of what's possible</p>
-            </div>
-            <div>
-                <a href="">haaa</a> <a href="">aaaa</a> <a href="">aaaa</a> <a href="">aaaa</a>
-            </div>
-    </section>
-    <section>
-        <div>
-            <h2>Projects</h2>
-            <p>Explore Now</p>
-        </div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </section>
-    <footer>
-        <div>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </div>
-        <div>
-            <p>Loosely designed in       Figma and coded in Visual Studio Code by yours truly. Built with Next.js
-            and Tailwind CSS, deployed with Vercel. All text is set in the Inter typeface.</p>
-        </div>
+
+    <!-- Footer -->
+    <footer class="container text-center py-4">
+        <p>Loosely designed in Figma and coded in Visual Studio Code.</p>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

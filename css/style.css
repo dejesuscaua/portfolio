@@ -1,4 +1,9 @@
 *{
-background-color: #1E1E1E;
-color: white;
+font-family: 'Poppins', sans-serif;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #b07dfb, #ff8a8a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
