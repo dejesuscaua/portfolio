@@ -1,15 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".logo").classList.add("logo-animate");
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contact-form");
+  
+  if(contactForm){
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
 
-
-document.getElementById("menu-toggle").addEventListener("click", function() {
-    document.getElementById("mobile-menu").classList.toggle("active");
-});
-
-
-document.querySelectorAll("#mobile-menu a").forEach(item => {
-    item.addEventListener("click", () => {
-        document.getElementById("mobile-menu").classList.remove("active");
+      try {
+        const res = await fetch("/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message })
+        });
+        const data = await res.json();
+        alert(data.message);
+        contactForm.reset();
+      } catch (err) {
+        alert("Erro ao enviar mensagem!");
+        console.error(err);
+      }
     });
+  }
 });
