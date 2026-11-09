@@ -47,6 +47,7 @@
       <nav class="nav__links" aria-label="Seções">
         <a href="#sobre">Sobre</a>
         <a href="#destaque">Destaque</a>
+        <a href="#koach">Koach</a>
         <a href="#experiencia">Experiência</a>
         <a href="#stack">Stack</a>
         <a href="#projetos">Projetos</a>
@@ -67,6 +68,7 @@
     <div class="mobile-menu" id="mobile-menu" hidden>
       <a href="#sobre">Sobre</a>
       <a href="#destaque">Destaque</a>
+      <a href="#koach">Koach</a>
       <a href="#experiencia">Experiência</a>
       <a href="#stack">Stack</a>
       <a href="#projetos">Projetos</a>
@@ -223,10 +225,101 @@
       </div>
     </section>
 
+    <!-- ============ KOACH (case) ============ -->
+    <section class="section container" id="koach">
+      <header class="section__head reveal">
+        <p class="eyebrow">03 · Projeto em destaque</p>
+        <h2>Koach: feedback técnico de arremesso com a câmera do celular</h2>
+        <p class="section__sub">
+          Entre a escolinha e o profissional, o atleta de basquete treina sem medir nada. O Koach recebe um vídeo
+          gravado no celular e devolve, para cada arremesso, os ângulos do gesto, uma nota de 0 a 100 baseada em
+          literatura biomecânica e um vídeo anotado.
+        </p>
+      </header>
+
+      <div class="reveal">
+        <ol class="pipeline" aria-label="Pipeline de análise">
+          <li><span class="pipeline__n">01</span><strong>Vídeo</strong><small>upload MP4 ou ao vivo</small></li>
+          <li><span class="pipeline__n">02</span><strong>Pose</strong><small>MediaPipe · YOLO-pose</small></li>
+          <li><span class="pipeline__n">03</span><strong>Bola e aro</strong><small>detector + tracker</small></li>
+          <li><span class="pipeline__n">04</span><strong>Arremesso</strong><small>máquina de estados</small></li>
+          <li><span class="pipeline__n">05</span><strong>Nota</strong><small>0–100 · z-score</small></li>
+          <li><span class="pipeline__n">06</span><strong>Saída</strong><small>MP4 anotado + frames</small></li>
+        </ol>
+      </div>
+
+      <div class="koach">
+        <div class="koach__main reveal">
+
+          <div class="koach__grid">
+            <article class="kblock">
+              <h3>Um motor, dois caminhos</h3>
+              <p>O upload processado no servidor e a sessão ao vivo por WebSocket convergem para o mesmo detector e a mesma régua. O núcleo biomecânico não sabe de onde vêm os landmarks, então trocar MediaPipe por YOLO-pose não muda uma linha dele.</p>
+            </article>
+            <article class="kblock">
+              <h3>Privacidade no ao vivo</h3>
+              <p>No modo ao vivo a pose roda no celular, em React Native. O servidor recebe só os 33 pontos do corpo em JSON e nunca vê a imagem do atleta.</p>
+            </article>
+            <article class="kblock">
+              <h3>Uma régua só</h3>
+              <p>O mesmo limiar vivia em cinco lugares diferentes e gerava chip verde com alerta vermelho no mesmo arremesso. Agora o backend serializa valor, média, desvio e penalização com a fonte científica, e web e mobile só renderizam.</p>
+            </article>
+            <article class="kblock">
+              <h3>Medir antes de acreditar</h3>
+              <p>Toda melhoria entra desligada por flag e só é ativada se a medição contra vídeos anotados mostrar ganho. O que não foi medido aparece como "não medido", nunca como zero.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="koach__side reveal">
+          <div class="payload">
+            <div class="payload__bar"><span>GET /api/results/&lt;job_id&gt;</span><span class="payload__ok">200 · por variável</span></div>
+<pre><code><span class="j-p">{</span>
+  <span class="j-k">"key"</span>: <span class="j-s">"arm_release_angle"</span>,
+  <span class="j-k">"label"</span>: <span class="j-s">"Ângulo do braço na soltura"</span>,
+  <span class="j-k">"value"</span>: <span class="j-n">52.3</span>,
+  <span class="j-k">"mu"</span>: <span class="j-n">58.0</span>,
+  <span class="j-k">"sigma"</span>: <span class="j-n">12.47</span>,
+  <span class="j-k">"z"</span>: <span class="j-n">0.46</span>,
+  <span class="j-k">"penalty"</span>: <span class="j-n">0.42</span>,
+  <span class="j-k">"weight"</span>: <span class="j-n">18.0</span>,
+  <span class="j-k">"source"</span>: <span class="j-s">"Cabarkapa et al. (2022)"</span>
+<span class="j-p">}</span></code></pre>
+          </div>
+
+          <div class="kinfra">
+            <h3>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg>
+              Infra e deploy
+            </h3>
+            <ul>
+              <li>Azure App Service Linux (Python 3.12) com WebSockets, provisionado por script</li>
+              <li>GitHub Actions monta o pacote e instala MediaPipe e PyTorch CPU no runner, para a glibc do App Service</li>
+              <li>Deploy por pacote pronto: o build no servidor derrubava o container no plano B1</li>
+              <li>Migração de B1 para B3 com análise do que de fato limita o tempo por frame</li>
+              <li>Login e histórico no Firebase; Firestore ou SQLite atrás da mesma interface</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="kstats reveal">
+        <div><strong>96,4%</strong><span>recall na detecção da bola no vídeo de referência</span></div>
+        <div><strong>116 → 36 ms</strong><span>erro mediano no instante da soltura, após refinamento físico pela parábola</span></div>
+        <div><strong>2 modos</strong><span>upload processado no servidor e sessão ao vivo com pose no celular</span></div>
+        <div><strong>79</strong><span>arquivos de teste cobrindo pipeline, régua e API</span></div>
+      </div>
+
+      <div class="koach__foot reveal">
+        <ul class="chips"><li>Python</li><li>Flask</li><li>Socket.IO</li><li>MediaPipe</li><li>YOLO</li><li>OpenCV</li><li>PyTorch</li><li>React Native</li><li>Firebase</li><li>Azure App Service</li><li>GitHub Actions</li></ul>
+        <span class="private"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Repositório privado · backend API + app mobile</span>
+      </div>
+    </section>
+
     <!-- ============ EXPERIÊNCIA ============ -->
     <section class="section container" id="experiencia">
       <header class="section__head reveal">
-        <p class="eyebrow">03 · Experiência</p>
+        <p class="eyebrow">04 · Experiência</p>
         <h2>Trajetória</h2>
       </header>
 
@@ -322,7 +415,7 @@
     <!-- ============ STACK ============ -->
     <section class="section container" id="stack">
       <header class="section__head reveal">
-        <p class="eyebrow">04 · Stack</p>
+        <p class="eyebrow">05 · Stack</p>
         <h2>Ferramentas que uso</h2>
       </header>
       <div class="stack">
@@ -348,7 +441,7 @@
     <!-- ============ PROJETOS ============ -->
     <section class="section container" id="projetos">
       <header class="section__head reveal">
-        <p class="eyebrow">05 · Projetos</p>
+        <p class="eyebrow">06 · Projetos</p>
         <h2>Projetos</h2>
         <p class="section__sub">Produtos pessoais, trabalhos da FIAP e laboratórios, de pipelines e cloud a apps full-stack e visão computacional. Projetos marcados como privados mostram só a demo.</p>
       </header>
@@ -363,15 +456,6 @@
       </div>
 
       <div class="repos">
-        <article class="repo repo--wide reveal" data-cat="ai">
-          <div class="repo__top">
-            <span class="tag tag--accent">IA &amp; Visão</span>
-            <div class="repo__links"><span class="private" title="Código em repositório privado"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Privado</span></div>
-          </div>
-          <h3>Koach · análise de arremesso</h3>
-          <p>Plataforma que analisa a biomecânica do arremesso de basquete a partir de um vídeo de celular. O backend rastreia o corpo e a bola, mede os ângulos do gesto e devolve uma nota com vídeo anotado. A pose também roda ao vivo no app mobile. O deploy vai para o Azure App Service via GitHub Actions, com login e histórico no Firebase.</p>
-          <ul class="chips"><li>Python</li><li>Flask</li><li>MediaPipe</li><li>YOLO</li><li>React Native</li><li>Azure</li><li>GitHub Actions</li></ul>
-        </article>
         <article class="repo reveal" data-cat="fullstack">
           <div class="repo__top">
             <span class="tag">Full-stack</span>
@@ -381,13 +465,13 @@
           <p>Gestão de carteira para corretores: follow-up obrigatório, lead frio volta sozinho para a fila por um job diário e o gerente acompanha a equipe inteira.</p>
           <ul class="chips"><li>Next.js</li><li>Firebase</li><li>Vercel Cron</li><li>Gemini</li></ul>
         </article>
-        <article class="repo repo--wide reveal" data-cat="cloud">
+        <article class="repo reveal" data-cat="cloud">
           <div class="repo__top">
             <span class="tag tag--accent">Cloud &amp; DevOps</span>
             <div class="repo__links"><a href="https://github.com/dejesuscaua/space-intelligence-platform" target="_blank" rel="noopener" aria-label="Código de Space Intelligence Platform no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a></div>
           </div>
           <h3>Space Intelligence Platform</h3>
-          <p>Plataforma que correlaciona dados orbitais, sensores IoT e IA para gerar inteligência operacional (Global Solution 2026, em grupo). Deploy na Azure com pipeline no GitHub Actions com build e deploy separados, App Service, segredos no Key Vault, monitoramento com Application Insights e Log Analytics, papéis IAM e alertas.</p>
+          <p>Global Solution 2026, em grupo: dados orbitais, IoT e IA. Deploy na Azure com GitHub Actions, App Service, Key Vault, Application Insights, IAM e alertas.</p>
           <ul class="chips"><li>Next.js</li><li>GitHub Actions</li><li>App Service</li><li>Key Vault</li><li>App Insights</li><li>IAM</li></ul>
         </article>
         <article class="repo reveal" data-cat="cloud">
@@ -517,7 +601,7 @@
     <!-- ============ CONTATO ============ -->
     <section class="section container" id="contato">
       <div class="contact reveal">
-        <p class="eyebrow">06 · Contato</p>
+        <p class="eyebrow">07 · Contato</p>
         <h2>Vamos conversar?</h2>
         <p>Aberto a conversas sobre DevOps, Platform Engineering e Cloud. A forma mais rápida de falar comigo é por e-mail ou LinkedIn.</p>
         <div class="contact__actions">
