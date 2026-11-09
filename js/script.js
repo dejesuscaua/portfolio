@@ -127,6 +127,24 @@
 
   if (term) reduceMotion ? renderStatic() : typeTerminal();
 
+  /* ---------- Filtro de projetos ---------- */
+  const filters = document.querySelectorAll(".filter");
+  const items = document.querySelectorAll(".repos [data-cat]");
+  filters.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      filters.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      items.forEach((el) => {
+        el.hidden = f !== "all" && el.dataset.cat !== f;
+        el.classList.add("is-visible");
+      });
+    })
+  );
+
   /* ---------- Copiar e-mail ---------- */
   const copyBtn = document.getElementById("copy-email");
   const toast = document.getElementById("toast");

@@ -28,6 +28,10 @@
 </head>
 
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  </svg>
   <a href="#main" class="skip-link">Pular para o conteúdo</a>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
@@ -345,11 +349,117 @@
     <section class="section container" id="projetos">
       <header class="section__head reveal">
         <p class="eyebrow">05 · Projetos</p>
-        <h2>Projetos acadêmicos e pessoais</h2>
-        <p class="section__sub">Trabalhos da graduação e projetos que construí antes de migrar para DevOps.</p>
+        <h2>Projetos no GitHub</h2>
+        <p class="section__sub">Trabalhos da graduação na FIAP e projetos pessoais, de pipelines e cloud a APIs e IoT.</p>
       </header>
-      <div class="projects">
-        <a class="project reveal" href="https://clarke-project-fiap.netlify.app/" target="_blank" rel="noopener">
+
+      <div class="filters reveal" role="group" aria-label="Filtrar projetos">
+        <button class="filter is-active" data-filter="all" aria-pressed="true">Todos</button>
+        <button class="filter" data-filter="cloud" aria-pressed="false">Cloud &amp; DevOps</button>
+        <button class="filter" data-filter="backend" aria-pressed="false">Back-end</button>
+        <button class="filter" data-filter="iot" aria-pressed="false">IoT &amp; Visão</button>
+        <button class="filter" data-filter="web" aria-pressed="false">Web</button>
+      </div>
+
+      <div class="repos">
+        <article class="repo repo--wide reveal" data-cat="cloud">
+          <div class="repo__top">
+            <span class="tag tag--accent">Cloud &amp; DevOps</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/space-intelligence-platform" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Space Intelligence Platform</h3>
+          <p>Plataforma que correlaciona dados orbitais, sensores IoT e IA para gerar inteligência operacional (Global Solution 2026, em grupo). Deploy na Azure com pipeline no GitHub Actions com build e deploy separados, App Service, segredos no Key Vault, monitoramento com Application Insights e Log Analytics, papéis IAM e alertas.</p>
+          <ul class="chips"><li>Next.js</li><li>GitHub Actions</li><li>App Service</li><li>Key Vault</li><li>App Insights</li><li>IAM</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="cloud">
+          <div class="repo__top">
+            <span class="tag tag--accent">DevSecOps</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/aula-devsecops" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Shift Left na prática</h3>
+          <p>Laboratório de DevSecOps: pipeline no GitHub Actions com dois guardas automáticos: Gitleaks varrendo todo o histórico atrás de segredos e Semgrep fazendo SAST em cada push e PR.</p>
+          <ul class="chips"><li>GitHub Actions</li><li>Gitleaks</li><li>Semgrep</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="cloud">
+          <div class="repo__top">
+            <span class="tag tag--accent">Serverless</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/project-request-azure" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Gerador de PDF serverless</h3>
+          <p>Azure Function em Python que recebe uma requisição HTTP, gera um PDF em memória e devolve para download, pensada para o Consumption Plan.</p>
+          <ul class="chips"><li>Azure Functions</li><li>Python</li><li>ReportLab</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="backend">
+          <div class="repo__top">
+            <span class="tag">Back-end</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/sprint-csharp" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Investment API</h3>
+          <p>API REST de usuários e investimentos em ASP.NET Core, com arquitetura em camadas (Controller, Service, Repository), Entity Framework e Oracle.</p>
+          <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>EF Core</li><li>Oracle</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="backend">
+          <div class="repo__top">
+            <span class="tag">Back-end</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/edit-pptx" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>API de edição de PPTX</h3>
+          <p>API em FastAPI que recebe um PowerPoint e um JSON de substituições e devolve o arquivo editado, mantendo a formatação original.</p>
+          <ul class="chips"><li>Python</li><li>FastAPI</li><li>python-pptx</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="backend">
+          <div class="repo__top">
+            <span class="tag">Back-end</span>
+            <div class="repo__links">
+              <a href="https://or-amento-mecanica.vercel.app" target="_blank" rel="noopener" aria-label="Ver demo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-ext"/></svg></a>
+              <a href="https://github.com/dejesuscaua/or-amento_mecanica" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Orçamento para oficina</h3>
+          <p>App em Flask que transforma um formulário em orçamento e ordem de serviço em PDF para oficinas mecânicas, publicado na Vercel.</p>
+          <ul class="chips"><li>Python</li><li>Flask</li><li>ReportLab</li><li>Vercel</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="iot">
+          <div class="repo__top">
+            <span class="tag">Visão computacional</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/sprint-iot" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Acesso por reconhecimento facial</h3>
+          <p>Aplicação Flask com OpenCV que identifica o administrador pela webcam (modelo LBPH), detecta movimento contra fraude e libera um painel com dados de API.</p>
+          <ul class="chips"><li>Python</li><li>OpenCV</li><li>Flask</li></ul>
+        </article>
+
+        <article class="repo reveal" data-cat="iot">
+          <div class="repo__top">
+            <span class="tag">Visão computacional</span>
+            <div class="repo__links">
+              <a href="https://github.com/dejesuscaua/checkpoint-feller" target="_blank" rel="noopener" aria-label="Código no GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><use href="#i-gh"/></svg></a>
+            </div>
+          </div>
+          <h3>Resposta a falhas elétricas</h3>
+          <p>Detecção de queda de energia por luminosidade e de presença humana com MediaPipe, ativando protocolos simulados de segurança em ambientes críticos.</p>
+          <ul class="chips"><li>Python</li><li>MediaPipe</li><li>Cyber</li></ul>
+        </article>
+
+        <a class="project reveal" data-cat="web" href="https://clarke-project-fiap.netlify.app/" target="_blank" rel="noopener">
           <div class="project__img"><img src="./assets/projeto3.png" alt="Tela do projeto Clarke" loading="lazy"></div>
           <div class="project__body">
             <h3>Clarke <span class="arrow">↗</span></h3>
@@ -357,7 +467,7 @@
             <ul class="chips"><li>FIAP</li><li>Web</li></ul>
           </div>
         </a>
-        <a class="project reveal" href="https://loginpagecauadev.netlify.app" target="_blank" rel="noopener">
+        <a class="project reveal" data-cat="web" href="https://loginpagecauadev.netlify.app" target="_blank" rel="noopener">
           <div class="project__img"><img src="./assets/projeto2.png" alt="Tela da Login Page" loading="lazy"></div>
           <div class="project__body">
             <h3>Login Page <span class="arrow">↗</span></h3>
@@ -365,13 +475,20 @@
             <ul class="chips"><li>React</li><li>Node.js</li><li>PostgreSQL</li></ul>
           </div>
         </a>
-        <a class="project reveal" href="https://aiglobalsolution.netlify.app" target="_blank" rel="noopener">
+        <a class="project reveal" data-cat="web" href="https://aiglobalsolution.netlify.app" target="_blank" rel="noopener">
           <div class="project__img"><img src="./assets/projeto1.png" alt="Tela do Global Solution 2023" loading="lazy"></div>
           <div class="project__body">
             <h3>Global Solution 2023 <span class="arrow">↗</span></h3>
             <p>Solução para melhorar a produção e a qualidade dos alimentos, com impacto para agricultores e sociedade.</p>
             <ul class="chips"><li>FIAP</li><li>Web</li></ul>
           </div>
+        </a>
+      </div>
+
+      <div class="repos__more reveal">
+        <a class="btn btn--ghost" href="https://github.com/dejesuscaua?tab=repositories" target="_blank" rel="noopener">
+          Ver todos os repositórios no GitHub
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
       </div>
     </section>
