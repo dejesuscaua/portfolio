@@ -413,6 +413,10 @@ strong { color: var(--text); font-weight: 600; }
 .repo h3 { font-size: 18px; }
 .repo p { color: var(--muted); font-size: 14px; flex-grow: 1; }
 .repo--wide p { font-size: 15px; max-width: 640px; }
+.private {
+  display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border-radius: 999px;
+  font: 500 11px/1 var(--mono); color: var(--faint); border: 1px dashed var(--border-strong);
+}
 .repos__more { display: flex; justify-content: center; margin-top: 32px; }
 
 .project {
